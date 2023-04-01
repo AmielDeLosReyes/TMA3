@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <link rel="stylesheet" type="text/css" href="{% static "/css/homepage.css" %}">
+    <style>
+        body {
+            background-image: url("{% static "bg2.jpg" %}");
+            background-size: cover;
+            color:white;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Amiel De Los Reyes' Page</h1>
+    <ul>
+        <li><a href="{% url "TMA3:home" %}">Home</a></li>
+        <li><a href="{% url "TMA3:part1" %}">Part 1</a></li>
+        <li><a href="{% url "TMA3:part2" %}">Part 2</a></li>
+        <li><a href="{% url "TMA3:part3" %}">Part 3</a></li>
+        <li><a href="{% url "TMA3:part4" %}">Part 4</a></li>
+    </ul>
+    <div id="container">
+        <div id="aboutMe">
+            <h1>Assignment 3 COMP 466</h1>
+            <p>My name is Amiel De Los Reyes. My student ID is 3621919.</p>
+            <p>This is Assignment 2 of the course.</p>   
+            <p>I began working on the assignment on March 19, 2023. I completed this assignment on March 31, 2023.</p>
+            <p>Estimated hours I spent on this assignment is 40 hours.</p>
+    </div> <!-- container-->
+        <hr />
+    <h2>Documentation</h2>
+    <h3><u>Original Description and Requirements of the Project</u>:</h3>
+    
+    <p><b>Part 1:</b> Create a web application with Django in Python that uses a persistent cookie to track how many times a client computer has visited the page. In addition to the number of hits, the application also needs to display the IP address of the client computer and the time zone where the client computer is located. </p>
+    <br />
+
+    <p><b>Part 2:</b> Develop a web application using Django in Python that runs a slideshow of a list of pictures. The requirements are as follows:
+        <ol>
+            <li>Information about the pictures must be stored on the server either in a database or in a text file. These details would include the name and location or URL of each picture and a description of the picture to be used as a caption, which must be stored in a plain text file or a database.</li>
+            <br />
+            <li>The caption should be shown under each picture in the show.</li>
+            <br />
+            <br />
+            <li>There should be a button to start/stop the show.</li>
+            <br />
+            <li>There should be a control to toggle the show between random and sequential.</li>
+            <br />
+            <li>There should be buttons to manually turn the show backward or forward, only if the show is in sequential mode.</li>
+            <br />
+            <li>You may reuse the pictures you have used for assignment 1.</li>
+            <br />
+            <li>The show should have at least 20 nice pictures.</li>
+            <br />
+        </ol>    
+    </p>
+
+    <br />
+
+    <p><b>Part 3:</b> In parts 3 and 4 of this assignment, you will be developing an online computer store in which customers can select a computer from a list and customize it by replacing some components in its standard configuration with others that may be better or cheaper. Customers can then place an order with the online store.</p>
+    <p>In this part, your focus should be on the web interface design and implementation of the online store, using Django in Python as server-side language and other web technologies you have learned from Units 1–4. The requirements are as follows:
+
+        <ol>
+            <li>Visit some online stores such as Bestbuy.CA and Amazon.CA, study their designs and functionalities, and write your findings in the assignment report.</li>
+            <br />
+            <li>Based on your study above, analyze the requirements of the web application you are to develop and then work out a design of the web application, including drawings of the interface, name and functions of each modules you will need, and web pages/documents to be used.</li>
+            <br />
+            <li>The application running in a web browser should be like a real online store, with a name and logo, menus and buttons for navigation, a welcome page to greet customers, and other pages, such as contacts and a feedback form, and so on.</li>
+            <br />
+            <li>There should be a list of computers, lists of different parts or components (no less than five different components including at least RAM, hard drive, CPU, display, OS, and soundcard) of computers that can be reviewed by customers. At this stage, the information about these products can be hard coded into the HTML or program files.</li>
+            <br />
+            <li>A customer can select a computer with default/standard configuration and pricing, and then customize it by changing its configuration, that is, by replacing one component with another from a list of compatible components.</li>
+            <br />
+            <li>Whenever a change has been made by the customer, the price total needs to be dynamically changed and displayed to the customer, in an area embedded in the online store, not in a pop-up window.</li>
+            <br />
+            <li>After the customer has hit the Buy or Add to Cart or something similar, a summary of selections, including all the details of the customized computer and its pricing, should be displayed in the browser window.</li>
+            <br />
+            <li>At this stage, you don’t need to save orders placed by customers in the database. You can use Cookies to store and track customer selections.</li>
+            <br />
+            <li>All links, menus, and buttons within the online store should be active.</li>
+            <br />
+            <br />
+        </ol>
+        <br />
+    </p>
+    <br />
+    <br />
+    <br />
+
+    <p><b>Part 4:</b> In part 4 of the assignment, you will continue your work completed in part 3, to develop a fully functioning online computer store (without payment transaction, though). Your tasks for this part are:
+        <ol>
+            <li>Add a customer management module to the online computer store, which should include new customer registration, customer authentication, and password recovery.</li>
+            <br />
+            <li>Add an order management module which will save orders for registered customers and allow registered customers to manage their orders, including view the list and details of each item in the list and delete or make changes to a selected order in the list.</li>
+            <br />
+            <br />
+            <li>Design and implement a back-end database to support your online computer store that does the following:
+                
+                <ol type="a">
+                    <li>Store all the details of the computers and components and replace all the data hard coded into the program files with data from the database.</li>
+                    <br />
+                    <li>Use the database for all your customer management.</li>
+                    <br />
+                    <li>Use the database for all your order management. When an order is submitted, the details of the order, including pricing, need to be saved in the database, and then displayed in an appropriate format to the customer.</li>
+                    <br />
+                </ol>
+                
+            </li>
+            <br />
+        </ol>    
+    </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <h3><u>Interpretation of the Assignment Project and Requirements</u>:</h3>
+    <p><b>Part 1:</b> This part allows me to practice persistent cookie and grabbing a client's ip address. This is good as it sets me up to develop a better and faster website once I publish something on the Internet. The performance will be fast since a client's information (such as ip address) is collected through persistent cookies and it renders my website based on the client's information from their previous session.</p>
+    <p><b>Part 2:</b> The main purpose of this part is to use a database as a storage of the images. Data includes the name, location, and description of the images. This is similar to Assignment 1 but now we are usign a database.</p>
+
+    <p><b>Part 3:</b> My interpretation of this part is that I will be creating a website for customers that wants to customize a personal computer. Details and information of computers will be hardcoded and I will be using Cookies to store and track customer selections instead of using a database.</p>
+
+    <p><b>Part 4:</b> My interpretation of this part is that I will expand on part 3, instead of using Cookies when it comes to storing data and infromation, I will be using a database. All the required information will now be stored in the database which now makes my website fully functioning as a online computer store.</p>
+    <br />
+
+    <h3><u>Analysis and Design</u>:</h3>
+    <p>Part 1 will use persistent cookies to keep track of the number of times a client/computer visits the website.</p>
+    <p>Part 2 will be using a database to store the data and information of the images. It will have a table named Images and it will have four columns (ID, image_name, image_location, image_description), all in type varchar except the ID.</p>
+    <p>Part 3 will be a full stack design for a website for a computer online store. However, it will only use persistent cookies to store the customer's selections for now, and later we will be using a database in Part 4.</p>
+    <p>Part 4 will now be using a database to store the customer's selections. I will have two tables (Users and Orders). Users table will have four columns (UID, customer_name, customer_email, customer_password) all in type varchar except the ID. Orders table will have </p>
+    <br />
+
+    <h3><u>Implementation</u>:</h3>
+    <p>For Part 1, I created a simple HTML page with simple texts that displays the client's IP address as well as the number of times the client visited the page.</p>
+
+    <p>For Part 2, I created a table in my local database. It stores the images' information and I will iterate through each record to display each image in the view. The logic is also implemented depending on the functionality and button clicked.</p>
+
+    <p>For Part 3, there is no tables created, however, I will be using persistent cookies and set cookie to the variables that needs to be retained, such as the component pricing as the customer changes computer components, total pricing, and more. This will be seen with the add to cart view.</p>
+
+    <p>For Part 4, I will now create the tables needed. Front-end and backend development will now be implemented for this part and it will now be a fully functioning computer e-commerce website.</p>
+    <br />
+
+    <h3><u>User Guide</u>:</h3>
+    <ol>
+        <li>Read the documentation completely to understand the purpose of the assignment.</li>
+        <br />
+        <li>Navigate through the parts through the navigation bar on top of the page.</li>
+        <br />
+        <li>By clicking on Part 1 navigation button, the user is directed to the landing page of Part 1. It displays a simple HTML page that shows the number of times a client visited this page, as well as the client's IP address.</li>
+        <br />
+        <li>By clicking on Part 2 navigation button, the user is directed to the landing page of Part 2. It is a image slideshow that has buttons to start/stop, dropdowns for effects, and also a button to choose from sequential to random.</li>
+        <br />
+        <li>By clicking on Part 3 navigation button, the user is directed to the landing page of Part 3. It starts with a welcome page which will contain the basic summaries of an online computer store. Users will be able to customize and change computer components and be able to see price changes and totals.</li>
+        <br />
+        <li>By clicking on Part 4 navigation button, the user is directed to the landing page of Part 4. It is an extension of part 3, and will now have extra features such as customer registration, adding, editing, listing, and deleting selections of computer components, and it is now a fully functioning computer e-commerce website.</li>
+        <br />
+    </ol>
+    <br />
+    
+<br />
+    <br />
+    <h3><u>Other Notes for the Marker</u>:</h3>
+    <p>I would like to thank Dr. Liaqat Ali for responding to my questions quickly. I hope it is easy for you to navigate through my assignment and websites. Thank you! :)</p>
+    <br />
+
+    <hr />
+    <span>Assignment 3 - Amiel De Los Reyes &copy; 2023</span>
+
+</body>
+</html>

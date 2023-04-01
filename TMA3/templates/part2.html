@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <link rel="stylesheet" type="text/css" href="{% static "/css/homepage.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "/css/animate.css" %}">
+    <style>
+        body {
+            background-image: url("{% static "/assets/bg.jpg" %}");
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button {
+            background-color: #555555;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Amiel De Los Reyes' Page</h1>
+    <ul>
+        <li><a href="{% url "TMA3:home" %}">Home</a></li>
+        <li><a href="{% url "TMA3:part1" %}">Part 1</a></li>
+        <li><a href="{% url "TMA3:part2" %}">Part 2</a></li>
+        <li><a href="{% url "TMA3:part3" %}">Part 3</a></li>
+        <li><a href="{% url "TMA3:part4" %}">Part 4</a></li>
+    </ul>
+
+    
+    
+    <img name="slide" width="500" height="600" class="center"/>
+    <p id="caption" class="center"></p>
+    <p id="test"></p>
+    
+    <table>
+        <td>
+        <button class="button"onClick="start()">Start</button>
+        <button class="button" onClick="pause();">Pause</button>
+        <button class="button" onClick="changeImage(-1); return false;">Previous Image</button>
+        <button class="button" onClick="changeImage(1); return false;">Next Image</button>
+        <button class="button" onClick="random();">Random</button>
+        <button class="button"onClick="start()">Sequential</button>
+        <button class="button"onClick="effect1()">Effect 1</button>
+        <button class="button"onClick="effect2()">Effect 2</button>
+        <button class="button"onClick="effect3()">Effect 3</button>
+        <button class="button"onClick="refresh()">Restart</button>
+        
+        </td>
+      </tr>
+    </table>
+
+    <!-- Javascript code for slideshow -->
+    <script>    
+        
+
+        var images = [
+            {% for images in image_location %}
+                    "{{ images }}", 
+            {% endfor %}
+        ];
+
+        // captions List
+        var captions = [
+            {% for captions in image_caption %}
+                "{{ captions }}", 
+            {% endfor %}
+        ];
+    
+        // console.log(captions);
+
+        var interval = setInterval("changeImage(0)", time);
+        var time = 1000;
+        var imageNumber = 0;
+        var imageLength = images.length - 1;
+
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+            }
+
+            return array;
+        }
+
+        // Change Image
+        function changeImage(x) {
+        
+            imageNumber += x;
+            // if array has reached end, starts over
+            if (imageNumber > imageLength) {
+                imageNumber = 0;
+            }
+            if (imageNumber < 0) {
+                imageNumber = imageLength;
+            }
+
+            document.slide.src = images[imageNumber];
+            document.getElementById("caption").innerHTML = captions[imageNumber];
+
+            return false;
+        }
+
+        function random() {
+            shuffle(images);
+            shuffle(captions);
+            interval = setInterval("changeImage(1)", time);
+            
+        }
+
+        function start(){
+            // Run function every x seconds
+            interval = setInterval("changeImage(1)", time);
+        }
+
+        function pause(){
+            clearInterval(interval);
+            interval = null;
+        }
+
+        function effect1() {
+            clearInterval(interval);
+            interval = null;
+            const img = document.querySelector("img");
+            const imgs = img.classList;
+            imgs.add("w3-animate-zoom");
+            interval = setInterval("changeImage(1)", time);
+        }
+
+        function effect2() {
+            clearInterval(interval);
+            interval = null;
+            const img = document.querySelector("img");
+            const imgs = img.classList;
+            imgs.add("w3-spin");
+            interval = setInterval("changeImage(1)", time);
+        }
+
+        function effect3() {
+            clearInterval(interval);
+            interval = null;
+            
+            const img = document.querySelector("img");
+            const imgs = img.classList;
+            imgs.add("w3-animate-right");
+            interval = setInterval("changeImage(1)", time);
+        }
+
+        function refresh() {
+            window.location.reload();
+        }
+
+    </script>
+
+    <hr />
+    <span>Assignment 3 (Part 2) - Amiel De Los Reyes &copy; 2023</span>
+
+</body>
+</html>
