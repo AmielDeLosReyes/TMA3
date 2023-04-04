@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <link rel="stylesheet" type="text/css" href="{% static "/css/homepage.css" %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+        body {
+            background-image: url("{% static "bg1.jpg" %}");
+            background-size: cover;
+        }
+
+        p {
+            text-align: center;
+            font-family: "Sofia", sans-serif;
+            font-size: 50px;
+            color:darkred;
+        }
+        .button {
+            background-color: #555555;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+
+        }
+        .btnwrap {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Amiel De Los Reyes' Page</h1>
+    <ul>
+        <li><a href="{% url "TMA3:home" %}">Home</a></li>
+        <li><a href="{% url "TMA3:part1" %}">Part 1</a></li>
+        <li><a href="{% url "TMA3:part2" %}">Part 2</a></li>
+        <li><a href="{% url "TMA3:part3" %}">Part 3</a></li>
+        <li><a href="{% url "TMA3:part4" %}">Part 4</a></li>
+    </ul>
+
+    <div>
+        <p><u>Your IP Address is:</u> {{ ipAddress }} </p>
+    </div>
+
+    <div class="btnwrap">
+        <p>You visited this page {{ num_visits }} times!</p>
+        <p><u>Your timezone:</u> {{ timezone }}</p>
+        <button class="button" onClick="refresh()" style="text-align: center;">Click Here to Refresh Page to Add Visit Count</button>
+    </div>
+    <script>
+        function refresh() {
+            window.location.reload();
+        }
+    </script>
+
+
+</body>
+</html>
